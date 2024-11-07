@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+header {
+  background-color: #fad96f;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 6em;
+}
+header .h1-logo-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1em;
+}
+header .logoImg {
+  height: 4em;
+  padding-left: 0.5em;
+}
+header .burger-menu {
+  background-color: #fad96f;
+  border: none;
+  font-size: large;
+}
+
+main .titreMain {
+  text-align: center;
+  margin-top: 1em;
+  width: 80%;
+  padding-left: 2em;
+}
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  background-color: #d9d9d9;
+  margin-top: 2em;
+  width: 12em;
+  padding: 2em;
+}
+.nameBrasserie {
+  text-align: center;
+}
+.cardList {
+  list-style: none;
+  padding-left: 0;
+}
+footer {
+  background-color: #fad96f;
+  height: 4em;
+  margin-top: 3em;
+  text-align: center;
+  padding-top: 4em;
+}
