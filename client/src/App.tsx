@@ -26,7 +26,7 @@ function App() {
         <div className="cardContainer">
           {/* <p><BeerCard {beerCount}/>
        </p> */}
-      <BeersList beers={beersList} />
+          <BeersList beers={beersList} />
         </div>
       </main>
       <footer>
