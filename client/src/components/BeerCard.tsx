@@ -1,3 +1,5 @@
+import { useContext, useState } from "react";
+import BeerContext from "../Contexts/BeerContext";
 import type { Beer } from "./Beers";
 
 interface BeerCardProps {
@@ -5,6 +7,18 @@ interface BeerCardProps {
 }
 
 function BeerCard({ beer }: BeerCardProps) {
+  const { beerCount, setBeerCount } = useContext(BeerContext);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  function handleClickFavorite() {
+    if (isFavorite === false) {
+      setBeerCount(beerCount + 1);
+    } else {
+      setBeerCount(beerCount - 1);
+    }
+    setIsFavorite(!isFavorite);
+  }
+
   return (
     <>
       <figure className="card">
@@ -18,6 +32,9 @@ function BeerCard({ beer }: BeerCardProps) {
             Site internet : <a href="{beer.website_url}">visiter le site </a>
           </li>
         </ul>
+        <button type="button" onClick={handleClickFavorite}>
+          {isFavorite ? "❤️" : "🖤"}
+        </button>
       </figure>
     </>
   );

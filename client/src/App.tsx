@@ -1,8 +1,13 @@
+import { useState } from "react";
 import "./App.css";
+
+import BeerContext from "./Contexts/BeerContext";
 import { beersList } from "./components/Beers";
 import BeersList from "./components/BeersList";
 
 function App() {
+  const [beerCount, setBeerCount] = useState(0);
+
   return (
     <>
       <header>
@@ -20,10 +25,13 @@ function App() {
       </header>
       <main>
         <h2 className="titreMain">
-          Voyagez dans le monde des brasseries écossises
+          Voyagez dans le monde des brasseries écossaises
         </h2>
+        <h3>Ma sélection : {beerCount} brasseries</h3>
         <div className="cardContainer">
-          <BeersList beers={beersList} />
+          <BeerContext.Provider value={{ beerCount, setBeerCount }}>
+            <BeersList beers={beersList} />
+          </BeerContext.Provider>
         </div>
       </main>
       <footer>
