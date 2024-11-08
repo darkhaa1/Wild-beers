@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import BeerContext from "../Contexts/BeerContext";
 import type { Beer } from "./Beers";
 
 interface BeerCardProps {
@@ -6,15 +7,14 @@ interface BeerCardProps {
 }
 
 function BeerCard({ beer }: BeerCardProps) {
+  const { beerCount, setBeerCount } = useContext(BeerContext);
   const [isFavorite, setIsFavorite] = useState(false);
 
-  const [beerCount, setBeerCount] = useState(0);
-
   function handleClickFavorite() {
-    if (isFavorite) {
-      setBeerCount((prevCount) => Math.max(prevCount - 1, 0));
+    if (isFavorite === false) {
+      setBeerCount(beerCount + 1);
     } else {
-      setBeerCount((prevCount) => prevCount + 1);
+      setBeerCount(beerCount - 1);
     }
     setIsFavorite(!isFavorite);
   }
@@ -22,7 +22,6 @@ function BeerCard({ beer }: BeerCardProps) {
   return (
     <>
       <figure className="card">
-        <h3>Nombre de favoris : {beerCount}</h3>
         <h3 className="nameBrasserie">{beer.name}</h3>
         <ul className="cardList">
           <li>Type de brassage: {beer.brewery_type}</li>
