@@ -29,7 +29,7 @@ function BeerCard({ beer }: BeerCardProps) {
             Adresse :{beer.address} {beer.city} {beer.postal_code} {beer.state}
           </li>
           <li>
-            Site internet : <a href="{beer.website_url}">visiter le site </a>
+            Site internet : <a href={beer.website_url}>visiter le site </a>
           </li>
         </ul>
         <button type="button" onClick={handleClickFavorite}>
