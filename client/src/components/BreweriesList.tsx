@@ -3,6 +3,14 @@ import { useEffect, useState } from "react";
 interface Brewery {
   id: string;
   name: string;
+  brewery_type: string;
+  address: string;
+  city: string;
+  state_province: string;
+  postal_code: string;
+  country: string;
+  website_url: string;
+  state: string;
 }
 
 const BreweriesList = () => {
@@ -23,10 +31,24 @@ const BreweriesList = () => {
 
   return (
     <div>
-      <h1>Liste des brasseries</h1>
       <ul>
         {breweries.map((brewery) => (
-          <li key={brewery.id}>{brewery.name}</li>
+          <figure className="card" key={brewery.id}>
+            <h3 className="nameBrasserie">{brewery.name}</h3>
+            <ul className="cardList">
+              <li>Type de brassage: {brewery.brewery_type}</li>
+              <li>
+                Adresse :{brewery.address} {brewery.postal_code}{" "}
+                <li>Ville :{brewery.city}</li>
+                <li>Région :{brewery.state}</li>
+                <li>Pays : {brewery.country}</li>
+              </li>
+              <li>
+                Site internet :{" "}
+                <a href={brewery.website_url}>visiter le site </a>
+              </li>
+            </ul>
+          </figure>
         ))}
       </ul>
     </div>
