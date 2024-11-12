@@ -2,11 +2,9 @@ import "./App.css";
 
 import { Link, Outlet } from "react-router-dom";
 
-
 // import BeerContext from "./Contexts/BeerContext";
 // import BeersList from "./components/BeersList";
-import BreweriesList from "./components/BreweriesList";
-
+// import BreweriesList from "./components/BreweriesList";
 
 function App() {
   return (
@@ -32,9 +30,7 @@ function App() {
       </header>
 
       <main>
-
         <Outlet />
-
       </main>
       <footer>
         <p>Coordonées - 2024</p>

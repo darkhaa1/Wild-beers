@@ -19,7 +19,6 @@
 //     setIsFavorite(!isFavorite);
 //   }
 
-
 //   return (
 //     <>
 //       <figure className="card">
@@ -61,6 +60,5 @@
 //     </>
 //   );
 // }
-
 
 // export default BeerCard;
