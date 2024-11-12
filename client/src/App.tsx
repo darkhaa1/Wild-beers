@@ -1,9 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 
-import BeerContext from "./Contexts/BeerContext";
-import { beersList } from "./components/Beers";
-import BeersList from "./components/BeersList";
+// import BeerContext from "./Contexts/BeerContext";
+// import BeersList from "./components/BeersList";
 import BreweriesList from "./components/BreweriesList";
 
 function App() {
@@ -30,9 +29,9 @@ function App() {
         </h2>
         <h3>Ma sélection : {beerCount} brasseries</h3>
         <div className="cardContainer">
-          <BeerContext.Provider value={{ beerCount, setBeerCount }}>
+          {/* <BeerContext.Provider value={{ beerCount, setBeerCount }}>
             <BeersList beers={beersList} />
-          </BeerContext.Provider>
+          </BeerContext.Provider> */}
           <BreweriesList />
         </div>
       </main>
