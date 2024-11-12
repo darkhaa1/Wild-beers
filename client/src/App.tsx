@@ -4,6 +4,7 @@ import "./App.css";
 import BeerContext from "./Contexts/BeerContext";
 import { beersList } from "./components/Beers";
 import BeersList from "./components/BeersList";
+import BreweriesList from "./components/BreweriesList";
 
 function App() {
   const [beerCount, setBeerCount] = useState(0);
@@ -32,6 +33,7 @@ function App() {
           <BeerContext.Provider value={{ beerCount, setBeerCount }}>
             <BeersList beers={beersList} />
           </BeerContext.Provider>
+          <BreweriesList />
         </div>
       </main>
       <footer>
