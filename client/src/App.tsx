@@ -35,17 +35,6 @@ function App() {
 
         <Outlet />
 
-        <h2 className="titreMain">
-          Voyagez dans le monde des brasseries écossaises
-        </h2>
-        <h3>Ma sélection : {beerCount} brasseries</h3>
-        <div className="cardContainer">
-          {/* <BeerContext.Provider value={{ beerCount, setBeerCount }}>
-            <BeersList beers={beersList} />
-          </BeerContext.Provider> */}
-          <BreweriesList />
-        </div>
-
       </main>
       <footer>
         <p>Coordonées - 2024</p>
