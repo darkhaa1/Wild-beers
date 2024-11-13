@@ -1,21 +1,22 @@
 import { useEffect, useState } from "react";
 
 interface Brewery {
-  id: string;
-  name: string;
-  brewery_type: string;
-  address: string;
-  city: string;
-  state_province: string;
-  postal_code: string;
-  country: string;
-  website_url: string;
-  state: string;
+	id: string;
+	name: string;
+	brewery_type: string;
+	address: string;
+	city: string;
+	state_province: string;
+	postal_code: string;
+	country: string;
+	website_url: string;
+	state: string;
 }
 interface BreweriesListProps {
   favorites: string[];
   toggleFavorite: (breweryId: string) => void;
 }
+
 
 const BreweriesList = ({ favorites, toggleFavorite }: BreweriesListProps) => {
   const [breweries, setBreweries] = useState<Brewery[]>([]);
@@ -23,15 +24,18 @@ const BreweriesList = ({ favorites, toggleFavorite }: BreweriesListProps) => {
     getBreweries();
   }, []);
 
-  const getBreweries = () => {
-    fetch(
-      "https://api.openbrewerydb.org/v1/breweries?by_country=england&per_page=200",
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setBreweries(data);
-      });
-  };
+
+	const getBreweries = () => {
+		fetch(
+			"https://api.openbrewerydb.org/v1/breweries?by_country=england&per_page=200",
+		)
+			.then((response) => response.json())
+			.then((data) => {
+				setBreweries(data);
+			});
+	};
+
+
 
   return (
     <div>
@@ -60,6 +64,7 @@ const BreweriesList = ({ favorites, toggleFavorite }: BreweriesListProps) => {
       </ul>
     </div>
   );
+
 };
 
 export default BreweriesList;
