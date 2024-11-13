@@ -12,8 +12,12 @@ interface Brewery {
   website_url: string;
   state: string;
 }
+interface BreweriesListProps {
+  favorites: string[];
+  toggleFavorite: (breweryId: string) => void;
+}
 
-const BreweriesList = () => {
+const BreweriesList = ({ favorites, toggleFavorite }: BreweriesListProps) => {
   const [breweries, setBreweries] = useState<Brewery[]>([]);
   useEffect(() => {
     getBreweries();
@@ -48,6 +52,9 @@ const BreweriesList = () => {
                 <a href={brewery.website_url}>visiter le site </a>
               </li>
             </ul>
+            <button type="button" onClick={() => toggleFavorite(brewery.id)}>
+              {favorites.includes(brewery.id) ? "❤️" : "🖤"}
+            </button>
           </figure>
         ))}
       </ul>
