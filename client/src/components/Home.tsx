@@ -4,9 +4,9 @@ import "../App.css";
 import BeerContext from "../Contexts/BeerContext";
 
 import BreweriesList from "./BreweriesList";
+import BoutonSoif from "./boutonSoif";
 
 function Home() {
-
   const [beerCount, setBeerCount] = useState(0);
   const [favorites, setFavorites] = useState<string[]>([]);
   const toggleFavorite = (breweryId: string) => {
@@ -22,6 +22,7 @@ function Home() {
   return (
     <>
       <h2 className="titreMain">Voyagez dans le monde des brasseries</h2>
+      <BoutonSoif />
       <h3>Ma sélection : {beerCount} brasseries</h3>
       <div className="cardContainer">
         <BeerContext.Provider value={{ beerCount, setBeerCount }}>
@@ -33,7 +34,6 @@ function Home() {
       </div>
     </>
   );
-
 }
 
 export default Home;
