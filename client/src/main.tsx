@@ -8,6 +8,8 @@ import Home from "./components/Home";
 import MesFavoris from "./components/MesFavoris";
 import NotreHistoire from "./components/NotreHistoire";
 
+import { BeerProvider } from "./Contexts/BeerContext";
+
 const router = createBrowserRouter([
   {
     element: <App />,
@@ -37,7 +39,9 @@ if (rootElement == null) {
 // Render the app inside the root element
 createRoot(rootElement).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <BeerProvider>
+      <RouterProvider router={router} />
+    </BeerProvider>
   </StrictMode>,
 );
 

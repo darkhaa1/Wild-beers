@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import BeerContext from "../Contexts/BeerContext";
 
 interface Brewery {
   id: string;
@@ -12,26 +13,21 @@ interface Brewery {
   website_url: string;
   state: string;
 }
-interface BreweriesListProps {
-  favorites: string[];
-  toggleFavorite: (breweryId: string) => void;
-}
 
-const BreweriesList = ({ favorites, toggleFavorite }: BreweriesListProps) => {
+
+const BreweriesList = () => {
+  const { favorites, toggleFavorite } = useContext(BeerContext); // Utiliser le contexte pour récupérer les favoris et la fonction toggleFavorite
+
+
   const [breweries, setBreweries] = useState<Brewery[]>([]);
+
   useEffect(() => {
-    getBreweries();
+    fetch("https://api.openbrewerydb.org/v1/breweries?per_page=200")
+      .then((response) => response.json())
+      .then((data) => setBreweries(data));
   }, []);
 
-  const getBreweries = () => {
-    fetch(
-      "https://api.openbrewerydb.org/v1/breweries?by_country=england&per_page=200",
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setBreweries(data);
-      });
-  };
+  
 
   return (
     <div>

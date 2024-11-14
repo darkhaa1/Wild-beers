@@ -1,4 +1,9 @@
-import { type Dispatch, type SetStateAction, createContext } from "react";
+import {
+  type Dispatch,
+  type SetStateAction,
+  createContext,
+  useState,
+} from "react";
 
 // const BeerContext = createContext({
 // 	beerCount: 0,
@@ -8,15 +13,42 @@ import { type Dispatch, type SetStateAction, createContext } from "react";
 const defaultValue: BeerCountType = {
   beerCount: 0,
   setBeerCount: () => {},
+  favorites: [],
+  toggleFavorite: () => {},
 };
 
 interface BeerCountType {
   beerCount: number;
   setBeerCount: Dispatch<SetStateAction<number>>;
+  favorites: string[];
+  toggleFavorite: (breweryId: string) => void;
 }
 
 const BeerContext = createContext<BeerCountType>(defaultValue);
 
-// const BeerContext = createContext(null);
+export const BeerProvider = ({ children }: { children: React.ReactNode }) => {
+  const [beerCount, setBeerCount] = useState<number>(0);
+  const [favorites, setFavorites] = useState<string[]>([]);
+
+  // Fonction pour basculer l'état de favoris
+  const toggleFavorite = (breweryId: string) => {
+    if (favorites.includes(breweryId)) {
+      setFavorites(favorites.filter((id) => id !== breweryId));
+      setBeerCount(beerCount - 1); // Si on enlève un favori, décrémente le compteur
+    } else {
+      setFavorites([...favorites, breweryId]);
+      setBeerCount(beerCount + 1); // Si on ajoute un favori, incrémente le compteur
+    }
+  };
+
+  // Fournir l'état et la fonction dans le contexte
+  return (
+    <BeerContext.Provider
+      value={{ beerCount, setBeerCount, favorites, toggleFavorite }}
+    >
+      {children}
+    </BeerContext.Provider>
+  );
+};
 
 export default BeerContext;
