@@ -15,7 +15,8 @@ interface Brewery {
 function BoutonSoif() {
   const [brewery, setBrewery] = useState<Brewery | null>(null);
   const randomBrewery = () => {
-    fetch("https://api.openbrewerydb.org/v1/breweries/random")
+    const randomNumber = Math.floor(Math.random() * 10) + 1;
+    fetch(`https://api.openbrewerydb.org/v1/breweries/random?${randomNumber}`)
       .then((response) => response.json())
       .then((data) => {
         setBrewery(data[0]);
