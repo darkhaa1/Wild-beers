@@ -1,4 +1,4 @@
-// import { useState } from "react";
+// import { useEffect, useState } from "react";
 
 // export interface Beer {
 //   id: number;
@@ -13,72 +13,51 @@
 //   state: string;
 // }
 
-// const breweries: Beer[] = [
-//   {
-//     id: 1,
-//     name: "Bute Brew Co",
-//     brewery_type: "closed",
-//     address: "15-17 Columshill Street",
-//     city: "Isle of Bute",
-//     state_province: "Bute",
-//     postal_code: "PA20 0DN",
-//     country: "Scotland",
-//     website_url: "http://butebrewco.co.uk/",
-//     state: "Bute",
-//   },
-//   {
-//     id: 2,
-//     name: "Colonsay Ales",
-//     brewery_type: "micro",
-//     address: "Colonsay Brewery",
-//     city: "Isle of Colonsay",
-//     state_province: "Argyll",
-//     postal_code: "PA61 7YZ",
-//     country: "England",
-//     website_url: "https://colonsaybrewery.co.uk/",
-//     state: "Argyll",
-//   },
-//   {
-//     id: 3,
-//     name: "Fyne Ales",
-//     brewery_type: "micro",
-//     address: "Achadunan",
-//     city: "Cairndow",
-//     state_province: "Argyll",
-//     postal_code: "PA26 8BJ",
-//     country: "Poland",
-//     website_url: "https://www.fyneales.com/",
-//     state: "Argyll",
-//   },
-//   {
-//     id: 4,
-//     name: "Glen Luss Craft Brewery & Distillery",
-//     brewery_type: "micro",
-//     address: "Church Road",
-//     city: "Alexandria",
-//     state_province: "West Dunbartonshire",
-//     postal_code: "G83 8NZ",
-//     country: "Scotland",
-//     website_url: "https://glenluss.co.uk/",
-//     state: "West Dunbartonshire",
-//   },
-//   {
-//     id: 5,
-//     name: "Islay Ales",
-//     brewery_type: "micro",
-//     address: "Islay House Square",
-//     city: "Isle of Islay",
-//     state_province: "Argyll",
-//     postal_code: "PA44 7NZ",
-//     country: "Scotland",
-//     website_url: "https://www.islayales.com/",
-//     state: "Argyll",
-//   },
-// ];
-
-// const countries = ["England", "Scotland", "Poland"];
-
 // function App() {
+//   const [breweries, setBreweries] = useState<Beer[]>([]);
+//   useEffect(() => {
+//     getBreweries();
+//   }, []);
+
+//   const getBreweries = () => {
+//     const urls = [
+//       "https://api.openbrewerydb.org/v1/breweries?by_country=england&per_page=200",
+//       "https://api.openbrewerydb.org/v1/breweries?by_country=austria&per_page=200",
+//       "https://api.openbrewerydb.org/v1/breweries?by_country=france&per_page=200",
+//       "https://api.openbrewerydb.org/v1/breweries?by_country=isle_of_man&per_page=200",
+//       "https://api.openbrewerydb.org/v1/breweries?by_country=irland&per_page=200",
+//       "https://api.openbrewerydb.org/v1/breweries?by_country=poland&per_page=200",
+//       "https://api.openbrewerydb.org/v1/breweries?by_country=portugal&per_page=200",
+//       "https://api.openbrewerydb.org/v1/breweries?by_country=scotland&per_page=200",
+//     ];
+
+//     const fetchPromises = urls.map((url) => fetch(url));
+//     Promise.all(fetchPromises)
+//       .then((responses) =>
+//         Promise.all(responses.map((response) => response.json())),
+//       )
+//       .then((data) => {
+//         const breweries = data.flat();
+
+//         setBreweries(breweries);
+//         console.log(breweries);
+//       });
+//   };
+
+//   //
+//   //   fetch(
+//   //     "https://api.openbrewerydb.org/v1/breweries?by_country=england&per_page=200",
+//   //   )
+//   //     .then((response) => response.json())
+
+//   // fetch(
+//   //   "https://api.openbrewerydb.org/v1/breweries?by_country=united_states&per_page=200",
+//   // )
+//   //   .then((response) => response.json())
+//   //   .then((data) => {
+//   //     setBreweries(data);
+//   //   });
+
 //   const [selectedCountries, setSelectedCountries] = useState<string[]>([]);
 //   const [selectedProvinces, setSelectedProvinces] = useState<string[]>([]);
 //   const [selectedCities, setSelectedCities] = useState<string[]>([]);
@@ -116,7 +95,13 @@
 //     setSelectedCities(tempCities);
 //     filterBreweries(tempCountries, tempProvinces, tempCities);
 //   };
-
+//   const countries = Array.from(
+//     new Set(
+//       breweries
+//         .map((brewery) => brewery.country),
+//     ),
+//   );
+//   console.log(countries);
 //   const provinces = Array.from(
 //     new Set(
 //       breweries
@@ -221,5 +206,3 @@
 // }
 
 // export default App;
-
-
