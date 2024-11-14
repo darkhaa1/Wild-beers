@@ -24,7 +24,7 @@ function BoutonSoif() {
   };
   return (
     <>
-      <button type="button" onClick={randomBrewery}>
+      <button className="boutonSoif"  type="button" onClick={randomBrewery}>
         {" "}
         J'ai soif
       </button>

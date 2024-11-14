@@ -22,7 +22,7 @@ function App() {
           ☰ Menu
         </button>
 
-        <nav>
+        <nav className="barreNav">
           <Link to="/"> Home </Link>
           <Link to="/mes-favoris"> Mes favoris </Link>
           <Link to="/notre-histoire"> Notre histoire </Link>
