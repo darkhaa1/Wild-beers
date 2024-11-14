@@ -14,8 +14,11 @@ interface Brewery {
   state: string;
 }
 
+
 const BreweriesList = () => {
   const { favorites, toggleFavorite } = useContext(BeerContext); // Utiliser le contexte pour récupérer les favoris et la fonction toggleFavorite
+
+
   const [breweries, setBreweries] = useState<Brewery[]>([]);
 
   useEffect(() => {
@@ -23,6 +26,8 @@ const BreweriesList = () => {
       .then((response) => response.json())
       .then((data) => setBreweries(data));
   }, []);
+
+  
 
   return (
     <div>
