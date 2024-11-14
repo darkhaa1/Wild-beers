@@ -14,7 +14,6 @@ interface Brewery {
   state: string;
 }
 
-
 const BreweriesList = () => {
   const { favorites, toggleFavorite } = useContext(BeerContext); // Utiliser le contexte pour récupérer les favoris et la fonction toggleFavorite
   const [breweries, setBreweries] = useState<Brewery[]>([]);
