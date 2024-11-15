@@ -42,24 +42,6 @@ function Filter() {
         setBreweries(breweries);
       });
   };
-
-  //
-  //   fetch(
-  //     "https://api.openbrewerydb.org/v1/breweries?by_country=england&per_page=200",
-  //   )
-  //     .then((response) => response.json())
-
-  // fetch(
-  //   "https://api.openbrewerydb.org/v1/breweries?by_country=united_states&per_page=200",
-  // )
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     setBreweries(data);
-  //   });
-
-  const [selectedCountries, setSelectedCountries] = useState<string[]>([]);
-  const [selectedProvinces, setSelectedProvinces] = useState<string[]>([]);
-  const [selectedCities, setSelectedCities] = useState<string[]>([]);
   const [filteredBreweries, setFilteredBreweries] = useState<Beer[]>(breweries);
   const [filter, setFilter] = useState(false);
 
@@ -89,9 +71,6 @@ function Filter() {
   };
 
   const handleApplyFilters = () => {
-    setSelectedCountries(tempCountries);
-    setSelectedProvinces(tempProvinces);
-    setSelectedCities(tempCities);
     filterBreweries(tempCountries, tempProvinces, tempCities);
   };
   const countries = Array.from(

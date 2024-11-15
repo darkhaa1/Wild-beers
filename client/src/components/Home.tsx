@@ -4,8 +4,8 @@ import BeerContext from "../Contexts/BeerContext";
 
 import { useContext } from "react";
 import BreweriesList from "./BreweriesList";
-import BoutonSoif from "./boutonSoif";
 import Filter from "./Filter";
+import BoutonSoif from "./boutonSoif";
 
 function Home() {
   const { beerCount } = useContext(BeerContext);
