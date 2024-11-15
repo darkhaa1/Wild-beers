@@ -23,9 +23,15 @@ function App() {
         </button>
 
         <nav className="barreNav">
-          <Link to="/"> Home </Link>
-          <Link to="/mes-favoris"> Mes favoris </Link>
-          <Link to="/notre-histoire"> Notre histoire </Link>
+          <Link to="/" className="homeLink">
+            Home
+          </Link>
+          <Link to="/mes-favoris" className="homeLink">
+            Mes favoris
+          </Link>
+          <Link to="/notre-histoire" className="homeLink">
+            Notre histoire
+          </Link>
         </nav>
       </header>
 
