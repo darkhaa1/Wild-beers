@@ -4,45 +4,45 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import App from "./App";
-import Home from "./components/Home";
-import MesFavoris from "./components/MesFavoris";
-import NotreHistoire from "./components/NotreHistoire";
+import Home from "./pages/Home";
+import MesFavoris from "./pages/MesFavoris";
+import NotreHistoire from "./pages/NotreHistoire";
 
 import { BeerProvider } from "./Contexts/BeerContext";
 
 const router = createBrowserRouter([
-  {
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/mes-favoris",
-        element: <MesFavoris />,
-      },
-      {
-        path: "/notre-histoire",
-        element: <NotreHistoire />,
-      },
-    ],
-  },
+	{
+		element: <App />,
+		children: [
+			{
+				path: "/",
+				element: <Home />,
+			},
+			{
+				path: "/mes-favoris",
+				element: <MesFavoris />,
+			},
+			{
+				path: "/notre-histoire",
+				element: <NotreHistoire />,
+			},
+		],
+	},
 ]);
 
 // Find the root element in the HTML document
 const rootElement = document.getElementById("root");
 if (rootElement == null) {
-  throw new Error(`Your HTML Document should contain a <div id="root"></div>`);
+	throw new Error(`Your HTML Document should contain a <div id="root"></div>`);
 }
 
 // Render the app inside the root element
 createRoot(rootElement).render(
-  <StrictMode>
-    <BeerProvider>
-      <RouterProvider router={router} />
-    </BeerProvider>
-  </StrictMode>,
+	<StrictMode>
+		<BeerProvider>
+			<RouterProvider router={router} />
+		</BeerProvider>
+	</StrictMode>,
 );
 
 /**
