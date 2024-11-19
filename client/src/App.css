@@ -14,26 +14,50 @@
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+body {
+  background-color: #1e1e1e;
+}
+
 header {
-  background-color: #fad96f;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   height: 6em;
+  background-color: none;
 }
 header .h1-logo-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-top: 1em;
+  color: white;
 }
 header .logoImg {
   height: 4em;
+  width: 6em;
   padding-left: 0.5em;
+  filter: invert(1) brightness(2);
 }
 header .burger-menu {
-  background-color: #fad96f;
+  background-color: transparent;
   border: none;
-  font-size: large;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  color: white;
+}
+
+.banner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+
+.bannerWrap {
+  position: absolute;
+  background-color: none;
 }
 
 main .titreMain {
@@ -43,6 +67,8 @@ main .titreMain {
   font-family: "Jaini Purva", system-ui;
   font-size: 2.75rem;
   font-style: normal;
+  color: white;
+  position: absolute;
 }
 .cardContainer {
   display: flex;
@@ -64,7 +90,7 @@ main .titreMain {
   padding-left: 0;
 }
 footer {
-  background-color: #fad96f;
+  background-color: #ec9d00;
   height: 4em;
   margin-top: 3em;
   text-align: center;
@@ -97,12 +123,13 @@ main {
   padding-right: 1em;
   text-decoration: none;
   font-size: x-large;
-  color: black;
+  color: white;
   font-weight: bold;
 }
 .homeLink:hover {
   color: #ec9d00;
   font-weight: bold;
+  font-size: 2rem;
 }
 
 header {

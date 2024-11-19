@@ -10,6 +10,8 @@ function App() {
   return (
     <>
       <header>
+        <img className="banner" src="/src/assets/images/barrels_banner.jpg" alt="barrels_banner"/>
+        <div className="bannerWrap">
         <div className="h1-logo-container">
           <h1 className="titre">Wild beers </h1>
           <img
@@ -21,7 +23,7 @@ function App() {
         <button type="button" className="burger-menu">
           ☰ Menu
         </button>
-
+</div>
         <nav className="barreNav">
           <Link to="/" className="homeLink">
             Home
