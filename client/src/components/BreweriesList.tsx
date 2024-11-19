@@ -1,29 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import BeerContext from "../Contexts/BeerContext";
 
-interface Brewery {
-  id: string;
-  name: string;
-  brewery_type: string;
-  address: string;
-  city: string;
-  state_province: string;
-  postal_code: string;
-  country: string;
-  website_url: string;
-  state: string;
-}
-
 const BreweriesList = () => {
-  const { favorites, toggleFavorite } = useContext(BeerContext); // Utiliser le contexte pour récupérer les favoris et la fonction toggleFavorite
-
-  const [breweries, setBreweries] = useState<Brewery[]>([]);
-
-  useEffect(() => {
-    fetch("https://api.openbrewerydb.org/v1/breweries?per_page=200")
-      .then((response) => response.json())
-      .then((data) => setBreweries(data));
-  }, []);
+  const { favorites, toggleFavorite } = useContext(BeerContext);
+  const { breweries } = useContext(BeerContext);
 
   return (
     <div>
