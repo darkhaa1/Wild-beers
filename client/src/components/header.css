@@ -1,0 +1,66 @@
+@media screen and (max-width: 767px) {
+  .barreNav {
+    display: none;
+  }
+}
+
+header {
+  display: flex;
+  align-items: center;
+  height: 10em;
+}
+.banner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+.bannerWrap {
+  position: absolute;
+  display: flex;
+  gap: 8em;
+}
+header .h1-logo-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+  color: white;
+  margin-left: 1em;
+}
+header .logoImg {
+  height: 4em;
+  width: 6em;
+  padding-left: 0.5em;
+  filter: invert(1) brightness(2);
+  margin-left: 2em;
+}
+header .burger-menu {
+  background-color: transparent;
+  border: none;
+  font-size: 5rem;
+  outline: none;
+  border: none;
+  color: white;
+}
+
+@media screen and (min-width: 768px) {
+  .burger-menu {
+    display: none;
+  }
+}
+
+.barreNav {
+  padding-left: 2em;
+}
+.homeLink {
+  padding-right: 1em;
+  text-decoration: none;
+  font-size: x-large;
+  color: white;
+  font-weight: bold;
+}
+.homeLink:hover {
+  color: #ec9d00;
+  font-weight: bold;
+  font-size: 2rem;
+}

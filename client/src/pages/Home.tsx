@@ -1,4 +1,4 @@
-import "../App.css";
+import "../components/home.css";
 
 import BeerContext from "../Contexts/BeerContext";
 
@@ -8,19 +8,23 @@ import Filter from "../components/Filter";
 import BoutonSoif from "../components/boutonSoif";
 
 function Home() {
-	const { beerCount } = useContext(BeerContext);
+  const { beerCount } = useContext(BeerContext);
 
-	return (
-		<>
-			<h2 className="titreMain">Voyagez dans le monde des brasseries</h2>
-			<BoutonSoif />
-			<Filter />
-			<h3>Ma sélection : {beerCount} brasseries</h3>
-			<div className="cardContainer">
-				<BreweriesList />
-			</div>
-		</>
-	);
+  return (
+    <>
+      <div>
+        <h2 className="titreMain">Voyagez dans le monde des brasseries</h2>
+        <h3 className="maSelection">
+          Ma sélection : {beerCount} brasseries 🍺
+        </h3>
+      </div>
+      <BoutonSoif />
+      <Filter />
+      <div className="cardContainer">
+        <BreweriesList />
+      </div>
+    </>
+  );
 }
 
 export default Home;

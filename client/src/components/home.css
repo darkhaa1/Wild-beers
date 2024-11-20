@@ -1,0 +1,91 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .titreMain {
+  text-align: center;
+  font-family: "Jaini Purva", system-ui;
+  font-size: 2.75rem;
+  font-style: normal;
+  color: white;
+  padding: 0.5em;
+}
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #e8dfdf79;
+  margin-top: 2em;
+  width: 13em;
+  padding: 2em;
+  box-shadow: 5px 5px 12px 10px rgba(255, 255, 255, 0.578);
+  border-radius: 16px 16px 16px 16px;
+  color: white;
+  font-size: medium;
+  line-height: 1.7em;
+}
+.nameBrasserie {
+  text-align: center;
+  color: rgb(62, 60, 60);
+}
+.cardList {
+  list-style: none;
+  padding: 0;
+}
+.boutonSoif {
+  background-color: #fad96f;
+  border-color: black;
+  font-size: 1.5em;
+  width: 5em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  border-radius: 0.5em;
+  font-weight: lighter;
+  text-align: center;
+  position: relative;
+  border: none;
+}
+
+.filtres .boutonSoif {
+  font-size: medium;
+  width: 6em;
+  padding: 0.5em;
+}
+
+.listeFiltre {
+  color: white;
+}
+.maSelection {
+  color: black;
+  background-color: #fad96f;
+  border-color: black;
+  margin-left: 2.5em;
+  margin-right: 2.5em;
+  padding: 0.2em;
+  border-radius: 0.5em;
+  font-weight: lighter;
+  text-align: center;
+}
+.coeurs {
+  background: none;
+  border: none;
+  font-size: 2em;
+}
+.url {
+  color: black;
+  text-align: center !important;
+  font-size: large;
+}
+@media screen and (min-width: 768px) {
+  .maSelection {
+    margin-left: 5em;
+    margin-right: 5em;
+  }
+}
