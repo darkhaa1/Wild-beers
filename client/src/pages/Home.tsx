@@ -6,6 +6,7 @@ import { useContext } from "react";
 import BreweriesList from "../components/BreweriesList";
 import Filter from "../components/Filter";
 import BoutonSoif from "../components/boutonSoif";
+import Maps from "../components/map";
 
 function Home() {
   const { beerCount } = useContext(BeerContext);
@@ -17,6 +18,9 @@ function Home() {
         <h3 className="maSelection">
           Ma sélection : {beerCount} brasseries 🍺
         </h3>
+      </div>
+      <div className="leaflet-container">
+        <Maps />
       </div>
       <BoutonSoif />
       <Filter />
