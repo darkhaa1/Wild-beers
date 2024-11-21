@@ -13,17 +13,20 @@ function Home() {
 
   return (
     <>
-      <div>
+      <div className="titre_selection_contenair">
         <h2 className="titreMain">Voyagez dans le monde des brasseries</h2>
         <h3 className="maSelection">
           Ma sélection : {beerCount} brasseries 🍺
         </h3>
       </div>
-      <div className="leaflet-container">
-        <Maps />
+      <div className="map_filtre">
+        <div className="leaflet-container">
+          <Maps />
+        </div>
+        <Filter />
       </div>
       <BoutonSoif />
-      <Filter />
+
       <div className="cardContainer">{/* <BreweriesList /> */}</div>
     </>
   );

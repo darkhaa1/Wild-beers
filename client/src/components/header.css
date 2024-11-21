@@ -77,12 +77,9 @@ header {
   height: 10em;
 }
 .banner {
-
   overflow: hidden;
   width: 100%;
   height: 100%;
-
-
 }
 .bannerWrap {
   position: absolute;
@@ -113,7 +110,6 @@ header .burger-menu {
 }
 
 @media screen and (min-width: 768px) {
-
   header {
     height: 20em;
   }
@@ -147,9 +143,8 @@ header .burger-menu {
   }
 }
 
-  .burger-menu {
-    display: none;
-  }
+.burger-menu {
+  display: none;
 }
 
 .barreNav {
@@ -167,4 +162,3 @@ header .burger-menu {
   font-weight: bold;
   font-size: 2rem;
 }
-
