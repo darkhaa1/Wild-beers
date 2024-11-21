@@ -89,9 +89,40 @@ main .titreMain {
   text-align: center !important;
   font-size: large;
 }
+
 @media screen and (min-width: 768px) {
   .maSelection {
     margin-left: 5em;
     margin-right: 5em;
+  }
+
+  .map_filtre {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 2em;
+  }
+
+  .leaflet-container {
+    height: 50em;
+    width: 50em;
+  }
+}
+
+@media screen and (min-width: 1012px) {
+  .titre_selection_contenair {
+    display: flex;
+    flex-direction: row;
+    gap: 5em;
+  }
+
+  .leaflet-container {
+    height: 50em;
+    width: 60em;
+  }
+
+  .maSelection {
+    margin-bottom: 3.5em;
+    margin-top: 2.5em;
   }
 }
