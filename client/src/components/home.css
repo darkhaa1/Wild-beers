@@ -38,16 +38,24 @@ main .titreMain {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #e8dfdf79;
+  background-color: #fad96f;
   margin-top: 2em;
   width: 13em;
   padding: 2em;
   box-shadow: 5px 5px 12px 10px rgba(255, 255, 255, 0.578);
   border-radius: 16px 16px 16px 16px;
-  color: white;
+  color: black;
   font-size: medium;
-  line-height: 1.7em;
+line-height: 1.7em;
 }
+
+
+.leaflet-popup-content-wrapper {
+  height: 15em;
+  background-color: rgb(73, 212, 247);
+
+}
+
 .nameBrasserie {
   text-align: center;
   color: rgb(62, 60, 60);

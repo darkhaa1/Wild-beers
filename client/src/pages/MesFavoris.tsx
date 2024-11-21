@@ -30,7 +30,7 @@ const MesFavoris = () => {
                 <a href={brewery.website_url}>visiter le site </a>
               </li>
             </ul>
-            <button type="button" onClick={() => toggleFavorite(brewery.id)}>
+            <button type="button" className="coeurs" onClick={() => toggleFavorite(brewery.id)}>
               {favorites.includes(brewery.id) ? "❤️" : "🖤"}
             </button>
           </figure>
