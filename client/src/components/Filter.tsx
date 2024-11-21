@@ -1,49 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext,  useState } from "react";
+import BeerContext from "../Contexts/BeerContext";
 
-export interface Beer {
-  id: number;
-  name: string;
-  brewery_type: string;
-  address: string;
-  city: string;
-  state_province: string;
-  postal_code: string;
-  country: string;
-  website_url: string;
-  state: string;
-}
+
 
 function Filter() {
-  const [breweries, setBreweries] = useState<Beer[]>([]);
-  useEffect(() => {
-    getBreweries();
-  }, []);
+  const { breweries } = useContext(BeerContext);
 
-  const getBreweries = () => {
-    const urls = [
-      "https://api.openbrewerydb.org/v1/breweries?by_country=england&per_page=200",
-      "https://api.openbrewerydb.org/v1/breweries?by_country=austria&per_page=200",
-      "https://api.openbrewerydb.org/v1/breweries?by_country=france&per_page=200",
-      "https://api.openbrewerydb.org/v1/breweries?by_country=isle_of_man&per_page=200",
-      "https://api.openbrewerydb.org/v1/breweries?by_country=irland&per_page=200",
-      "https://api.openbrewerydb.org/v1/breweries?by_country=poland&per_page=200",
-      "https://api.openbrewerydb.org/v1/breweries?by_country=portugal&per_page=200",
-      "https://api.openbrewerydb.org/v1/breweries?by_country=scotland&per_page=200",
-    ];
-
-    const fetchPromises = urls.map((url) => fetch(url));
-    Promise.all(fetchPromises)
-      .then((responses) =>
-        Promise.all(responses.map((response) => response.json())),
-      )
-      .then((data) => {
-        const breweries = data.flat();
-
-        setBreweries(breweries);
-      });
-  };
-
-  const [filteredBreweries, setFilteredBreweries] = useState<Beer[]>(breweries);
+  const [filteredBreweries, setFilteredBreweries] = useState(breweries);
   const [filter, setFilter] = useState(false);
 
   // déclaration des states pour récupérer les réponses des sélections par pays, provinces et citiess dans un tableau, qui ne sera visible qu'au clic sur valider
