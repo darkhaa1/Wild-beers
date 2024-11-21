@@ -11,6 +11,23 @@ main .titreMain {
   color: white;
   padding: 0.5em;
 }
+.maSelection {
+  color: black;
+  background-color: #fad96f;
+  border-color: black;
+  margin-left: 2.5em;
+  margin-right: 2.5em;
+  padding: 0.2em;
+  border-radius: 0.5em;
+  font-weight: lighter;
+  text-align: center;
+  margin-bottom: 1em;
+}
+.leaflet-container {
+  height: 50em;
+  width: 33em;
+}
+
 .cardContainer {
   display: flex;
   flex-direction: column;
@@ -50,7 +67,6 @@ main .titreMain {
   font-weight: lighter;
   text-align: center;
   position: relative;
-  border: none;
 }
 
 .filtres .boutonSoif {
@@ -62,17 +78,7 @@ main .titreMain {
 .listeFiltre {
   color: white;
 }
-.maSelection {
-  color: black;
-  background-color: #fad96f;
-  border-color: black;
-  margin-left: 2.5em;
-  margin-right: 2.5em;
-  padding: 0.2em;
-  border-radius: 0.5em;
-  font-weight: lighter;
-  text-align: center;
-}
+
 .coeurs {
   background: none;
   border: none;
