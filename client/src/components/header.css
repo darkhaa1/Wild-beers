@@ -47,20 +47,20 @@ header .burger-menu {
   .burger-menu {
     display: none;
   }
-}
-
-.barreNav {
-  padding-left: 2em;
-}
-.homeLink {
-  padding-right: 1em;
-  text-decoration: none;
-  font-size: x-large;
-  color: white;
-  font-weight: bold;
-}
-.homeLink:hover {
-  color: #ec9d00;
-  font-weight: bold;
-  font-size: 2rem;
+  .barreNav {
+    position: absolute;
+    padding-left: 2em;
+  }
+  .homeLink {
+    padding-right: 1em;
+    text-decoration: none;
+    font-size: x-large;
+    color: white;
+    font-weight: bold;
+  }
+  .homeLink:hover {
+    color: #ec9d00;
+    font-weight: bold;
+    font-size: 2rem;
+  }
 }

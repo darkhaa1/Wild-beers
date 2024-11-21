@@ -23,7 +23,7 @@ interface BeerCountType {
   setBreweries: Dispatch<SetStateAction<Brewery[]>>;
   breweries: Brewery[];
 }
-interface Brewery {
+export interface Brewery {
   id: string;
   name: string;
   brewery_type: string;
@@ -34,6 +34,8 @@ interface Brewery {
   country: string;
   website_url: string;
   state: string;
+  longitude: number;
+  latitude: number;
 }
 const BeerContext = createContext<BeerCountType>(defaultValue);
 
@@ -41,10 +43,33 @@ export const BeerProvider = ({ children }: { children: React.ReactNode }) => {
   const [breweries, setBreweries] = useState<Brewery[]>([]);
 
   useEffect(() => {
-    fetch("https://api.openbrewerydb.org/v1/breweries?per_page=200")
-      .then((response) => response.json())
-      .then((data) => setBreweries(data));
+    getBreweries();
   }, []);
+
+  const getBreweries = () => {
+    const urls = [
+      "https://api.openbrewerydb.org/v1/breweries?by_country=england&per_page=200",
+      "https://api.openbrewerydb.org/v1/breweries?by_country=austria&per_page=200",
+      "https://api.openbrewerydb.org/v1/breweries?by_country=france&per_page=200",
+      "https://api.openbrewerydb.org/v1/breweries?by_country=isle_of_man&per_page=200",
+      "https://api.openbrewerydb.org/v1/breweries?by_country=ireland&per_page=200",
+      "https://api.openbrewerydb.org/v1/breweries?by_country=poland&per_page=200",
+      "https://api.openbrewerydb.org/v1/breweries?by_country=scotland&per_page=200",
+      
+    ];
+
+    const fetchPromises = urls.map((url) => fetch(url));
+    Promise.all(fetchPromises)
+      .then((responses) =>
+        Promise.all(responses.map((response) => response.json())),
+      )
+      .then((data) => {
+        const breweries = data.flat();
+
+        setBreweries(breweries);
+      });
+  };
+
   const [beerCount, setBeerCount] = useState<number>(0);
   const [favorites, setFavorites] = useState<string[]>([]);
 
