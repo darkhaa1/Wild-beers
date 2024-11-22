@@ -55,7 +55,6 @@ export const BeerProvider = ({ children }: { children: React.ReactNode }) => {
       "https://api.openbrewerydb.org/v1/breweries?by_country=ireland&per_page=200",
       "https://api.openbrewerydb.org/v1/breweries?by_country=poland&per_page=200",
       "https://api.openbrewerydb.org/v1/breweries?by_country=scotland&per_page=200",
-      
     ];
 
     const fetchPromises = urls.map((url) => fetch(url));

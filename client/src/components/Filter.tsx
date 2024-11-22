@@ -1,7 +1,5 @@
-import { useContext,  useState } from "react";
+import { useContext, useState } from "react";
 import BeerContext from "../Contexts/BeerContext";
-
-
 
 function Filter() {
   const { breweries } = useContext(BeerContext);

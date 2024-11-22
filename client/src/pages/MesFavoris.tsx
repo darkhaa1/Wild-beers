@@ -12,7 +12,7 @@ const MesFavoris = () => {
   });
   return (
     <div>
-      <h2>Mes brasseries favorites</h2>
+      <h2 className="titreMesFavoris">Mes brasseries favorites</h2>
       <ul>
         {breweries.map((brewery) => (
           <figure className="card" key={brewery.id}>
@@ -30,7 +30,11 @@ const MesFavoris = () => {
                 <a href={brewery.website_url}>visiter le site </a>
               </li>
             </ul>
-            <button type="button" className="coeurs" onClick={() => toggleFavorite(brewery.id)}>
+            <button
+              type="button"
+              className="coeurs"
+              onClick={() => toggleFavorite(brewery.id)}
+            >
               {favorites.includes(brewery.id) ? "❤️" : "🖤"}
             </button>
           </figure>
