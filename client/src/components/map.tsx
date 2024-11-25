@@ -1,19 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import BeerContext from "../Contexts/BeerContext";
-import type { Brewery } from "../Contexts/BeerContext";
+
 export default function Maps() {
   const { breweries } = useContext(BeerContext);
   const { favorites, toggleFavorite } = useContext(BeerContext);
-
-  const [, setValidLocations] = useState<Brewery[]>([]);
-
-  useEffect(() => {
-    const filteredBreweries = breweries.filter(
-      (location) => location.latitude && location.longitude,
-    );
-    setValidLocations(filteredBreweries);
-  }, [breweries]);
 
   return (
     <MapContainer center={[51.505, -0.09]} zoom={5} scrollWheelZoom={true}>
@@ -38,7 +29,7 @@ export default function Maps() {
               </li>
               <li>
                 <a href={brewery.website_url} className="url">
-                  visiter le site{" "}
+                  visiter le site
                 </a>
               </li>
             </ul>
