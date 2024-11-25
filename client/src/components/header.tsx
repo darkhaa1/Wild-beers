@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import "./header.css";
+import { useState } from "react";
 function Header() {
+  const [showMenu, setShowMenu] = useState(false);
+  const handleShowMenu = () => {
+    setShowMenu(!showMenu);
+  };
   return (
     <header>
       <img
@@ -17,18 +22,26 @@ function Header() {
             alt="logo"
           />
         </div>
-        <button type="button" className="burger-menu">
-          ☰
-        </button>
+
+        {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+        <div className="burger-menu" onClick={handleShowMenu}>
+          <span className={`line  ${showMenu ? "line1-activated" : "line1"}`} />
+          <span className={`line  ${showMenu ? "line2-activated" : "line2"}`} />
+          <span className={`line  ${showMenu ? "line3-activated" : "line3"}`} />
+        </div>
       </div>
-      <nav className="barreNav">
-        <Link to="/" className="homeLink">
+      <nav className={`barreNav ${showMenu ? "show-nav" : "hide-nav"}`}>
+        <Link to="/" className="homeLink" onClick={handleShowMenu}>
           Home
         </Link>
-        <Link to="/mes-favoris" className="homeLink">
+        <Link to="/mes-favoris" className="homeLink" onClick={handleShowMenu}>
           Mes favoris
         </Link>
-        <Link to="/notre-histoire" className="homeLink">
+        <Link
+          to="/notre-histoire"
+          className="homeLink"
+          onClick={handleShowMenu}
+        >
           Notre histoire
         </Link>
       </nav>
