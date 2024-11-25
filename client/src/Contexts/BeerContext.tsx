@@ -6,23 +6,6 @@ import {
   useState,
 } from "react";
 
-const defaultValue: BeerCountType = {
-  beerCount: 0,
-  setBeerCount: () => {},
-  favorites: [],
-  toggleFavorite: () => {},
-  breweries: [],
-  setBreweries: () => {},
-};
-
-interface BeerCountType {
-  beerCount: number;
-  setBeerCount: Dispatch<SetStateAction<number>>;
-  favorites: string[];
-  toggleFavorite: (breweryId: string) => void;
-  setBreweries: Dispatch<SetStateAction<Brewery[]>>;
-  breweries: Brewery[];
-}
 export interface Brewery {
   id: string;
   name: string;
@@ -37,10 +20,36 @@ export interface Brewery {
   longitude: number;
   latitude: number;
 }
+
+interface BeerCountType {
+  beerCount: number;
+  setBeerCount: Dispatch<SetStateAction<number>>;
+  favorites: string[];
+  toggleFavorite: (breweryId: string) => void;
+  setBreweries: Dispatch<SetStateAction<Brewery[]>>;
+  breweries: Brewery[];
+  filteredBreweries: Brewery[];
+  setFilteredBreweries: Dispatch<SetStateAction<Brewery[]>>;
+  applyFilter: (searchText: string) => void;
+}
+
+const defaultValue: BeerCountType = {
+  beerCount: 0,
+  setBeerCount: () => {},
+  favorites: [],
+  toggleFavorite: () => {},
+  breweries: [],
+  setBreweries: () => {},
+  filteredBreweries: [],
+  setFilteredBreweries: () => {},
+  applyFilter: () => {},
+};
+
 const BeerContext = createContext<BeerCountType>(defaultValue);
 
 export const BeerProvider = ({ children }: { children: React.ReactNode }) => {
   const [breweries, setBreweries] = useState<Brewery[]>([]);
+  const [filteredBreweries, setFilteredBreweries] = useState<Brewery[]>([]);
 
   useEffect(() => {
     getBreweries();
@@ -82,6 +91,14 @@ export const BeerProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  const applyFilter = (searchText: string) => {
+    setFilteredBreweries((prevBreweries) =>
+      prevBreweries.filter((brewery) =>
+        brewery.name.toLowerCase().includes(searchText.toLowerCase()),
+      ),
+    );
+  };
+
   return (
     <BeerContext.Provider
       value={{
@@ -91,6 +108,9 @@ export const BeerProvider = ({ children }: { children: React.ReactNode }) => {
         toggleFavorite,
         breweries,
         setBreweries,
+        filteredBreweries,
+        setFilteredBreweries,
+        applyFilter,
       }}
     >
       {children}

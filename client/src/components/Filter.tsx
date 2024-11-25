@@ -1,25 +1,45 @@
-import { useContext, useState } from "react";
-import BeerContext from "../Contexts/BeerContext";
+import { useContext, useEffect, useState } from "react";
+import BeerContext, { type Brewery } from "../Contexts/BeerContext";
 
 function Filter() {
-  const { breweries } = useContext(BeerContext);
+  const { breweries, setBreweries } = useContext(BeerContext); // Récupérer la fonction setBreweries du contexte
 
-  const [filteredBreweries, setFilteredBreweries] = useState(breweries);
-  const [filter, setFilter] = useState(false);
-
-  // déclaration des states pour récupérer les réponses des sélections par pays, provinces et citiess dans un tableau, qui ne sera visible qu'au clic sur valider
   const [tempCountries, setTempCountries] = useState<string[]>([]);
   const [tempProvinces, setTempProvinces] = useState<string[]>([]);
   const [tempCities, setTempCities] = useState<string[]>([]);
 
-  // changement du state au clic en fonction des countries/provinces/cities sélectionnés avec la fonction ternaire
+  const [filteredBreweries, setFilteredBreweries] = useState<Brewery[]>([]);
+  const [filter, setFilter] = useState(false);
+
+  // Filtrage des brasseries en fonction des pays, provinces, et villes
+  const filterBreweries = (
+    countries: string[],
+    provinces: string[],
+    cities: string[],
+  ) => {
+    const filtered = breweries.filter(
+      (brewery) =>
+        (!countries.length || countries.includes(brewery.country)) &&
+        (!provinces.length || provinces.includes(brewery.state_province)) &&
+        (!cities.length || cities.includes(brewery.city)),
+    );
+
+    setFilteredBreweries(filtered);
+  };
+  const handleApplyFilters = () => {
+    filterBreweries(tempCountries, tempProvinces, tempCities);
+  };
+
+  useEffect(() => {
+    setBreweries(filteredBreweries);
+  }, [filteredBreweries, setBreweries]);
+
   const handleTempCountryChange = (country: string) => {
     const newSelectedCountries = tempCountries.includes(country)
       ? tempCountries.filter((c) => c !== country)
       : [...tempCountries, country];
     setTempCountries(newSelectedCountries);
   };
-
   const handleTempProvincesChange = (province: string) => {
     const newTempProvinces = tempProvinces.includes(province)
       ? tempProvinces.filter((r) => r !== province)
@@ -34,12 +54,6 @@ function Filter() {
     setTempCities(newTempCities);
   };
 
-  // le filtre s'applique en fonction des countries, provinces, cities sélectionnés
-  const handleApplyFilters = () => {
-    filterBreweries(tempCountries, tempProvinces, tempCities);
-  };
-
-  // affichage dans un Array des brasseries sélectionnées en fonction des countries/provinces/citiess
   const countries = Array.from(
     new Set(breweries.map((brewery) => brewery.country)),
   );
@@ -52,6 +66,7 @@ function Filter() {
     ),
   );
 
+  // Liste des villes en fonction des provinces sélectionnées
   const cities = Array.from(
     new Set(
       breweries
@@ -59,22 +74,6 @@ function Filter() {
         .map((brewery) => brewery.city),
     ),
   );
-
-  // retourne une nouvelle liste de brasseries par countries/provinces/cities selon le filtre utilisé : si le tableau countries/provinces/cities est vide (! country.length) on accepte toute les brasseries quel que soit le countries sinon on vérifie si le brewery.country est inclu dans countries
-  const filterBreweries = (
-    countries: string[],
-    provinces: string[],
-    cities: string[],
-  ) => {
-    setFilteredBreweries(
-      breweries.filter(
-        (brewery) =>
-          (!countries.length || countries.includes(brewery.country)) &&
-          (!provinces.length || provinces.includes(brewery.state_province)) &&
-          (!cities.length || cities.includes(brewery.city)),
-      ),
-    );
-  };
 
   // chaque input propose des choix de countries/provinces/cities
   return (
