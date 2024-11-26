@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import BeerContext from "../Contexts/BeerContext";
+import "../components/MesFavoris.css";
 
 const MesFavoris = () => {
   const { favorites, toggleFavorite, breweries, setBreweries } =
@@ -13,7 +14,7 @@ const MesFavoris = () => {
   return (
     <div>
       <h2 className="titreMesFavoris">Mes brasseries favorites</h2>
-      <ul>
+      <ul className="cardFavoris">
         {breweries.map((brewery) => (
           <figure className="card" key={brewery.id}>
             <h3 className="nameBrasserie">{brewery.name}</h3>
