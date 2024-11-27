@@ -105,6 +105,7 @@ header {
   position: relative;
   overflow: hidden;
   width: 100%;
+  height: 100%;
 }
 .bannerWrap {
   position: absolute;
@@ -137,9 +138,6 @@ header .logoImg {
   margin-left: 1em;
 }
 @media screen and (min-width: 768px) {
-  .banner {
-    height: 100%;
-  }
   header .h1-logo-container {
     flex-direction: row;
     align-items: center;
