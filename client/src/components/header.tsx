@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import "./header.css";
 import { type SetStateAction, useState } from "react";
 function Header() {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] =
+    useState(false); /* état pour buerger menu  change la forme */
   const handleShowMenu = () => {
     setShowMenu(!showMenu);
   };
@@ -33,9 +34,11 @@ function Header() {
             alt="logo"
           />
         </div>
-
-        {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-        <div className="burger-menu" onClick={handleShowMenu}>
+        <div
+          className="burger-menu"
+          onClick={handleShowMenu}
+          onKeyUp={handleShowMenu}
+        >
           <span className={`line  ${showMenu ? "line1-activated" : "line1"}`} />
           <span className={`line  ${showMenu ? "line2-activated" : "line2"}`} />
           <span className={`line  ${showMenu ? "line3-activated" : "line3"}`} />
@@ -44,7 +47,7 @@ function Header() {
       <nav className={`barreNav ${showMenu ? "show-nav" : "hide-nav"}`}>
         <Link
           to="/"
-          className={`homeLink ${hoveredLink === "home" ? "hovered" : ""}`}
+          className={`homeLink ${hoveredLink === "home" ? "hovered" : ""}`} // survole de souris il change classname
           onMouseEnter={() => handleMouseEnter("home")}
           onMouseLeave={handleMouseLeave}
           onClick={handleShowMenu}

@@ -1,16 +1,19 @@
 import { useContext, useEffect, useState } from "react";
-import BeerContext, { type Brewery } from "../Contexts/BeerContext";
+
+import BreweryContext, { type BreweryType } from "../Contexts/BreweryContext";
 
 function Filter() {
-  const { breweries, setBreweries } = useContext(BeerContext); // Récupérer la fonction setBreweries du contexte
+  const { breweries, setBreweries } = useContext(BreweryContext); // Récupérer la fonction setBreweries du contexte
 
   const [tempCountries, setTempCountries] = useState<string[]>([]); // le résultat doit être des strings dans un tableau et redonner un autre tableau
   const [tempProvinces, setTempProvinces] = useState<string[]>([]);
   const [tempCities, setTempCities] = useState<string[]>([]);
 
+
   // état pour stocker les brasseries sélectionnées mais non encore affichées
   const [filteredBreweries, setFilteredBreweries] = useState<Brewery[]>([]);
   // état pour afficher les brasseries sélectionnées
+
   const [filter, setFilter] = useState(false);
 
   // Filtrage des brasseries en fonction des pays, provinces, et villes

@@ -1,15 +1,16 @@
 import { useContext, useEffect } from "react";
-import BeerContext from "../Contexts/BeerContext";
 import "../components/MesFavoris.css";
+import BreweryContext from "../Contexts/BreweryContext";
 
 const MesFavoris = () => {
   const { favorites, toggleFavorite, breweries, setBreweries } =
-    useContext(BeerContext);
+    useContext(BreweryContext);
   useEffect(() => {
     const favoriteBreweries = breweries.filter((brewery) =>
       favorites.includes(brewery.id),
     );
     setBreweries(favoriteBreweries);
+    [favorites, breweries];
   });
   return (
     <div>
