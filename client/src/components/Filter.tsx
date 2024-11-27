@@ -9,9 +9,8 @@ function Filter() {
   const [tempProvinces, setTempProvinces] = useState<string[]>([]);
   const [tempCities, setTempCities] = useState<string[]>([]);
 
-
   // état pour stocker les brasseries sélectionnées mais non encore affichées
-  const [filteredBreweries, setFilteredBreweries] = useState<Brewery[]>([]);
+  const [filteredBreweries, setFilteredBreweries] = useState<BreweryType[]>([]);
   // état pour afficher les brasseries sélectionnées
 
   const [filter, setFilter] = useState(false);
