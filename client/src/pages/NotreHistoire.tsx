@@ -5,7 +5,7 @@ function NotreHistoire() {
   return (
     <>
       <h1 className="titreMesFavoris">Notre Histoire</h1>
-      <img src={teamImage} alt="photoTeam" className="teamPhoto" />
+      <img src={teamImage} alt="groupe Wild Beers" className="teamPhoto" />
       <p className="textePresentation">
         Notre histoire commence le 23 septembre à la Wild. La formation étant
         intense, il est important pour chacun et chacune de décompresser après

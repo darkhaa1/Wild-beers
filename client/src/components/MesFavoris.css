@@ -1,11 +1,11 @@
-@media screen and (max-width: 767px) {
+
   .cardFavoris {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-right: 1.5em;
   }
-}
+
 
 @media screen and (min-width: 768px) {
   .cardFavoris {
