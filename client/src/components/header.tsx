@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
 import "./header.css";
-import { useState } from "react";
+import { type SetStateAction, useState } from "react";
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
   const handleShowMenu = () => {
     setShowMenu(!showMenu);
+  };
+
+  const [hoveredLink, setHoveredLink] = useState(""); // État pour suivre le lien survolé
+
+  const handleMouseEnter = (link: SetStateAction<string>) => {
+    setHoveredLink(link);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredLink("");
   };
   return (
     <header>
@@ -13,6 +23,7 @@ function Header() {
         src="/src/assets/images/barrels_banner.jpg"
         alt="barrels_banner"
       />
+
       <div className="bannerWrap">
         <div className="h1-logo-container">
           <h1 className="titre">Wild beers </h1>
@@ -31,15 +42,29 @@ function Header() {
         </div>
       </div>
       <nav className={`barreNav ${showMenu ? "show-nav" : "hide-nav"}`}>
-        <Link to="/" className="homeLink" onClick={handleShowMenu}>
+        <Link
+          to="/"
+          className={`homeLink ${hoveredLink === "home" ? "hovered" : ""}`}
+          onMouseEnter={() => handleMouseEnter("home")}
+          onMouseLeave={handleMouseLeave}
+          onClick={handleShowMenu}
+        >
           Home
         </Link>
-        <Link to="/mes-favoris" className="homeLink" onClick={handleShowMenu}>
+        <Link
+          to="/mes-favoris"
+          className={`homeLink ${hoveredLink === "favorites" ? "hovered" : ""}`}
+          onMouseEnter={() => handleMouseEnter("favorites")}
+          onMouseLeave={handleMouseLeave}
+          onClick={handleShowMenu}
+        >
           Mes favoris
         </Link>
         <Link
           to="/notre-histoire"
-          className="homeLink"
+          className={`homeLink ${hoveredLink === "history" ? "hovered" : ""}`}
+          onMouseEnter={() => handleMouseEnter("history")}
+          onMouseLeave={handleMouseLeave}
           onClick={handleShowMenu}
         >
           Notre histoire
