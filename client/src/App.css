@@ -9,8 +9,19 @@ body {
 
 footer {
   background-color: #ec9d00;
-  height: 4em;
-  margin-top: 3em;
+  height: 8em;
   text-align: center;
-  padding-top: 4em;
+  text-align: center;
+  font-size: 1em;
+  padding: 2em;
+}
+
+footer,
+img {
+  height: 2em;
+  margin-left: 0.25em;
+}
+
+.footerElements {
+  padding-bottom: 0.25em;
 }
