@@ -6,11 +6,16 @@ main {
 main .titreMain {
   text-align: center;
   font-family: "Jaini Purva", system-ui;
-  font-size: 2.75rem;
+  font-size: 4rem;
   font-style: normal;
   color: white;
   padding: 0.5em;
 }
+
+.titreMesFavoris {
+  color: white;
+}
+
 .maSelection {
   color: black;
   background-color: #fad96f;
@@ -22,6 +27,7 @@ main .titreMain {
   font-weight: lighter;
   text-align: center;
   margin-bottom: 1em;
+  font-size: 1.5em;
 }
 .leaflet-container {
   height: 50em;
@@ -47,11 +53,13 @@ main .titreMain {
   color: black;
   font-size: medium;
   line-height: 1.7em;
+  margin-bottom: 1em;
 }
 
 .leaflet-popup-content-wrapper {
   height: 15em;
-  background-color: rgb(73, 212, 247);
+  background-color: rgb(255, 255, 255);
+  color: black;
 }
 
 .nameBrasserie {
@@ -65,24 +73,25 @@ main .titreMain {
 .boutonSoif {
   background-color: #fad96f;
   border-color: black;
-  font-size: 1.5em;
-  width: 5em;
-  margin-bottom: 1em;
+  font-size: 2em;
+  width: 6em;
+  margin-bottom: 0.5em;
   margin-top: 1em;
   border-radius: 0.5em;
   font-weight: lighter;
   text-align: center;
   position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
 }
 
-.filtres .boutonSoif {
-  font-size: medium;
-  width: 6em;
-  padding: 0.5em;
+.boutonSoif:hover {
+  transform: scale(1.1);
 }
 
 .listeFiltre {
-  color: white;
+  color: rgba(255, 255, 255, 0.527);
 }
 
 .coeurs {
@@ -98,8 +107,8 @@ main .titreMain {
 
 @media screen and (min-width: 768px) {
   .maSelection {
-    margin-left: 5em;
-    margin-right: 5em;
+    margin-left: 8em;
+    margin-right: 8em;
   }
 
   .map_filtre {
@@ -110,8 +119,8 @@ main .titreMain {
   }
 
   .leaflet-container {
-    height: 50em;
-    width: 50em;
+    height: 40em;
+    width: 40em;
   }
 }
 
@@ -134,12 +143,4 @@ main .titreMain {
     margin-bottom: 3.5em;
     margin-top: 2.5em;
   }
-}
-
-.titreMesFavoris {
-  color: white;
-}
-
-.boutonSoif {
-  font-size: 3em;
 }

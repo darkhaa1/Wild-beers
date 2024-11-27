@@ -144,13 +144,6 @@ function Filter() {
             </button>
           </div>
         )}
-        <ul className="listeFiltre">
-          {filteredBreweries.map((brewery) => (
-            <li key={brewery.id}>
-              {brewery.name} - {brewery.country}
-            </li>
-          ))}
-        </ul>
       </div>
     </>
   );
