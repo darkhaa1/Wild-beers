@@ -19,10 +19,10 @@ function Home() {
         </h3>
       </div>
       <div className="map_filtre">
-        <Filter />
         <div className="leaflet-container">
           <Maps />
         </div>
+        <Filter />
       </div>
 
       <BoutonSoif />

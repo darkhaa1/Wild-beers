@@ -16,6 +16,10 @@ main .titreMain {
   color: white;
 }
 
+.filtres {
+  margin-left: 6.2em;
+}
+
 .maSelection {
   color: black;
   background-color: #fad96f;
@@ -110,6 +114,10 @@ main .titreMain {
   .maSelection {
     margin-left: 8em;
     margin-right: 8em;
+  }
+
+  .filtres {
+    margin-left: 0;
   }
 
   .map_filtre {
