@@ -68,8 +68,6 @@ main .titreMain {
 }
 
 .leaflet-popup-content-wrapper {
-  height: 15em;
-  width: 12em;
   background-color: rgb(255, 255, 255);
   color: black;
   font-size: 1.5em;

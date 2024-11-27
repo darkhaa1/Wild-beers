@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import BeerContext from "../Contexts/BeerContext";
+import BreweryContext from "../Contexts/BreweryContext";
 
 export default function Maps() {
-  const { breweries } = useContext(BeerContext);
-  const { favorites, toggleFavorite } = useContext(BeerContext);
+  const { breweries } = useContext(BreweryContext);
+  const { favorites, toggleFavorite } = useContext(BreweryContext);
 
   return (
     <MapContainer center={[51.505, -0.09]} zoom={5} scrollWheelZoom={true}>
