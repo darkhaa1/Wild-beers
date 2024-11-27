@@ -60,6 +60,7 @@ main .titreMain {
   height: 15em;
   background-color: rgb(255, 255, 255);
   color: black;
+  font-size: 1.5em;
 }
 
 .nameBrasserie {
