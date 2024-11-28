@@ -16,10 +16,6 @@ main .titreMain {
   color: white;
 }
 
-.filtres {
-  margin-left: 6.2em;
-}
-
 .maSelection {
   color: black;
   background-color: #fad96f;
@@ -33,8 +29,6 @@ main .titreMain {
   margin-bottom: 1em;
   font-size: 1.5em;
 }
-<<<<<<< Updated upstream
-=======
 
 .filterCard {
   background: rgba(194, 202, 209, 0.77);
@@ -45,18 +39,9 @@ main .titreMain {
   width: 15em;
 }
 
-.filterCard input [type=""] {
-  margin: 0.25em;
-  font-size: 2.5em;
-  width: 100%; /* Pour s'assurer que l'input prend toute la largeur disponible */
-  padding: 0.5em; /* Vous pouvez ajouter un peu de padding pour un meilleur espacement */
-}
-
 .filterCard label {
   font-size: 1.5em;
 }
-
->>>>>>> Stashed changes
 .leaflet-container {
   height: 50em;
   width: 33em;

@@ -1,14 +1,6 @@
-<<<<<<< Updated upstream
-@media screen and (max-width: 767px) {
-  .teamPhoto {
-    height: 24em;
-    width: 24em;
-  }
-=======
 .teamPhoto {
   width: 24em;
   object-fit: contain;
->>>>>>> Stashed changes
 }
 
 .titreMesFavoris {

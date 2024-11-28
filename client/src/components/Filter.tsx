@@ -78,74 +78,74 @@ function Filter() {
   // chaque input propose des choix de countries/provinces/cities
   return (
     <>
-    <div className="filterCard">
-      <div className="filtres">
-        <button
-          type="button"
-          className="boutonSoif"
-          onClick={() => setFilter((prev) => !prev)}
-        >
-          Filtre
-        </button>
-        {filter && (
-          <div>
-            <h2 className="boutonSoif">Pays</h2>
+      <div className="filterCard">
+        <div className="filtres">
+          <button
+            type="button"
+            className="boutonSoif"
+            onClick={() => setFilter((prev) => !prev)}
+          >
+            Filtre
+          </button>
+          {filter && (
+            <div>
+              <h2 className="boutonSoif">Pays</h2>
 
-            {countries.map((country) => (
-              <div className="listeFiltre" key={country}>
-                <input
-                  type="checkbox"
-                  id={country}
-                  checked={tempCountries.includes(country)}
-                  onChange={() => handleTempCountryChange(country)}
-                />
-                <label htmlFor={country}>{country}</label>
-              </div>
-            ))}
+              {countries.map((country) => (
+                <div className="listeFiltre" key={country}>
+                  <input
+                    type="checkbox"
+                    id={country}
+                    checked={tempCountries.includes(country)}
+                    onChange={() => handleTempCountryChange(country)}
+                  />
+                  <label htmlFor={country}>{country}</label>
+                </div>
+              ))}
 
-            {provinces.length > 0 && (
-              <>
-                <h2 className="boutonSoif">Régions</h2>
-                {provinces.map((province) => (
-                  <div className="listeFiltre" key={province}>
-                    <input
-                      type="checkbox"
-                      id={province}
-                      checked={tempProvinces.includes(province)}
-                      onChange={() => handleTempProvincesChange(province)}
-                    />
-                    <label htmlFor={province}>{province}</label>
-                  </div>
-                ))}
-              </>
-            )}
+              {provinces.length > 0 && (
+                <>
+                  <h2 className="boutonSoif">Régions</h2>
+                  {provinces.map((province) => (
+                    <div className="listeFiltre" key={province}>
+                      <input
+                        type="checkbox"
+                        id={province}
+                        checked={tempProvinces.includes(province)}
+                        onChange={() => handleTempProvincesChange(province)}
+                      />
+                      <label htmlFor={province}>{province}</label>
+                    </div>
+                  ))}
+                </>
+              )}
 
-            {cities.length > 0 && (
-              <>
-                <h2 className="boutonSoif">Villes</h2>
-                {cities.map((city) => (
-                  <div className="listeFiltre" key={city}>
-                    <input
-                      type="checkbox"
-                      id={city}
-                      checked={tempCities.includes(city)}
-                      onChange={() => handleTempCitiesChange(city)}
-                    />
-                    <label htmlFor={city}>{city}</label>
-                  </div>
-                ))}
-              </>
-            )}
-            <button
-              type="button"
-              className="boutonSoif"
-              onClick={handleApplyFilters}
-            >
-              Valider
-            </button>
-          </div>
-        )}
-      </div>
+              {cities.length > 0 && (
+                <>
+                  <h2 className="boutonSoif">Villes</h2>
+                  {cities.map((city) => (
+                    <div className="listeFiltre" key={city}>
+                      <input
+                        type="checkbox"
+                        id={city}
+                        checked={tempCities.includes(city)}
+                        onChange={() => handleTempCitiesChange(city)}
+                      />
+                      <label htmlFor={city}>{city}</label>
+                    </div>
+                  ))}
+                </>
+              )}
+              <button
+                type="button"
+                className="boutonSoif"
+                onClick={handleApplyFilters}
+              >
+                Valider
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
