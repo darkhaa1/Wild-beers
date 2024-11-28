@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import BeerContext from "../Contexts/BeerContext";
+import BreweryContext from "../Contexts/BreweryContext";
 
 export default function Maps() {
-  const { breweries } = useContext(BeerContext);
-  const { favorites, toggleFavorite } = useContext(BeerContext);
+  const { breweries } = useContext(BreweryContext);
+  const { favorites, toggleFavorite } = useContext(BreweryContext);
 
   return (
     <MapContainer center={[51.505, -0.09]} zoom={5} scrollWheelZoom={true}>
@@ -12,7 +12,8 @@ export default function Maps() {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {breweries.map((brewery) => (
+
+      {breweries.map((brewery) => ( // récupère les données de breweries dans le useContext ce qui correspond aux API fetchées
         <Marker
           key={brewery.id}
           position={[brewery.latitude, brewery.longitude]}

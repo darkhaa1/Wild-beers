@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 
-export interface Brewery {
+export interface BreweryType {
   id: string;
   name: string;
   brewery_type: string;
@@ -21,35 +21,35 @@ export interface Brewery {
   latitude: number;
 }
 
-interface BeerCountType {
-  beerCount: number;
-  setBeerCount: Dispatch<SetStateAction<number>>;
+interface BreweriesType {
+  breweryCount: number;
+  setBreweryCount: Dispatch<SetStateAction<number>>;
   favorites: string[];
-  toggleFavorite: (breweryId: string) => void;
-  setBreweries: Dispatch<SetStateAction<Brewery[]>>;
-  breweries: Brewery[];
-  filteredBreweries: Brewery[];
-  setFilteredBreweries: Dispatch<SetStateAction<Brewery[]>>;
-  applyFilter: (searchText: string) => void;
+  toggleFavorite: (breweryFavorite: string) => void;
+  setBreweries: Dispatch<SetStateAction<BreweryType[]>>;
+  breweries: BreweryType[];
+  filteredBreweries: BreweryType[];
+  setFilteredBreweries: Dispatch<SetStateAction<BreweryType[]>>;
 }
 
-const defaultValue: BeerCountType = {
-  beerCount: 0,
-  setBeerCount: () => {},
+const defaultValue: BreweriesType = {
+  breweryCount: 0,
+  setBreweryCount: () => {},
   favorites: [],
   toggleFavorite: () => {},
   breweries: [],
   setBreweries: () => {},
   filteredBreweries: [],
   setFilteredBreweries: () => {},
-  applyFilter: () => {},
 };
 
-const BeerContext = createContext<BeerCountType>(defaultValue);
+const BreweryContext = createContext<BreweriesType>(defaultValue);
 
-export const BeerProvider = ({ children }: { children: React.ReactNode }) => {
-  const [breweries, setBreweries] = useState<Brewery[]>([]);
-  const [filteredBreweries, setFilteredBreweries] = useState<Brewery[]>([]);
+export const BreweryProvider = ({
+  children,
+}: { children: React.ReactNode }) => {
+  const [breweries, setBreweries] = useState<BreweryType[]>([]);
+  const [filteredBreweries, setFilteredBreweries] = useState<BreweryType[]>([]);
 
   useEffect(() => {
     getBreweries();
@@ -78,44 +78,36 @@ export const BeerProvider = ({ children }: { children: React.ReactNode }) => {
       });
   };
 
-  const [beerCount, setBeerCount] = useState<number>(0);
+  const [breweryCount, setBreweryCount] = useState<number>(0);
   const [favorites, setFavorites] = useState<string[]>([]);
 
-  const toggleFavorite = (breweryId: string) => {
-    if (favorites.includes(breweryId)) {
-      setFavorites(favorites.filter((id) => id !== breweryId));
-      setBeerCount(beerCount - 1);
+  //  mettre à jour de liste de mes favoris (favorites)
+  const toggleFavorite = (breweryFavorite: string) => {
+    if (favorites.includes(breweryFavorite)) {
+      setFavorites(favorites.filter((id) => id !== breweryFavorite));
+      setBreweryCount(breweryCount - 1);
     } else {
-      setFavorites([...favorites, breweryId]);
-      setBeerCount(beerCount + 1);
+      setFavorites([...favorites, breweryFavorite]);
+      setBreweryCount(breweryCount + 1);
     }
   };
 
-  const applyFilter = (searchText: string) => {
-    setFilteredBreweries((prevBreweries) =>
-      prevBreweries.filter((brewery) =>
-        brewery.name.toLowerCase().includes(searchText.toLowerCase()),
-      ),
-    );
-  };
-
   return (
-    <BeerContext.Provider
+    <BreweryContext.Provider
       value={{
-        beerCount,
-        setBeerCount,
+        breweryCount,
+        setBreweryCount,
         favorites,
         toggleFavorite,
         breweries,
         setBreweries,
         filteredBreweries,
         setFilteredBreweries,
-        applyFilter,
       }}
     >
       {children}
-    </BeerContext.Provider>
+    </BreweryContext.Provider>
   );
 };
 
-export default BeerContext;
+export default BreweryContext;

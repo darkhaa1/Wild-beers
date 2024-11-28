@@ -30,6 +30,7 @@ main .titreMain {
   font-size: 1.5em;
 }
 
+
 .filterCard {
   background: rgba(194, 202, 209, 0.77);
   padding: 1em;
@@ -41,6 +42,7 @@ main .titreMain {
 
 .filterCard label {
   font-size: 1.5em;
+
 }
 .leaflet-container {
   height: 50em;
@@ -57,6 +59,7 @@ main .titreMain {
   justify-content: center;
   align-items: center;
 }
+
 .card {
   display: flex;
   flex-direction: column;

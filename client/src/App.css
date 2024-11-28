@@ -9,15 +9,14 @@ body {
 
 footer {
   background-color: #ec9d00;
-  height: 8em;
+  height: 4em;
   text-align: center;
   text-align: center;
   font-size: 1em;
   padding: 2em;
 }
 
-footer,
-img {
+footer img {
   height: 2em;
   margin-left: 0.25em;
 }
