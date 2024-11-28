@@ -18,8 +18,7 @@ function ButtonJaiSoif() {
   const randomApi = () => {
     fetch("https://api.openbrewerydb.org/v1/breweries/random", {
       headers: {
-        "Cache-Control": "no-cache",
-        // indique au navigateur ne pas utiliser de réponse mise en cache
+        "Cache-Control": "no-cache", // indique au navigateur ne pas utiliser de réponse mise en cache
       },
     })
       .then((response) => response.json())

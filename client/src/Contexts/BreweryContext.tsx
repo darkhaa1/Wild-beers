@@ -43,9 +43,10 @@ const defaultValue: BreweriesType = {
   setFilteredBreweries: () => {},
 };
 
-const BreweryContext = createContext<BreweriesType>(defaultValue);
+const BreweryContext = createContext<BreweriesType>(defaultValue); // creation de context
 
 export const BreweryProvider = ({
+  // creation de provider pour passer context
   children,
 }: { children: React.ReactNode }) => {
   const [breweries, setBreweries] = useState<BreweryType[]>([]);
@@ -65,7 +66,7 @@ export const BreweryProvider = ({
       "https://api.openbrewerydb.org/v1/breweries?by_country=poland&per_page=200",
       "https://api.openbrewerydb.org/v1/breweries?by_country=scotland&per_page=200",
     ];
-
+    // fetcher plusiuer lien de l"API et garder dans l'état breweries
     const fetchPromises = urls.map((url) => fetch(url));
     Promise.all(fetchPromises)
       .then((responses) =>
