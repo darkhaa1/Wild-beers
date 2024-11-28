@@ -3,7 +3,7 @@ import "./header.css";
 import { type SetStateAction, useState } from "react";
 function Header() {
   const [showMenu, setShowMenu] =
-    useState(false); /* état pour buerger menu  change la forme */
+    useState(false); /* état pour burger menu  change la forme */
   const handleShowMenu = () => {
     setShowMenu(!showMenu);
   };

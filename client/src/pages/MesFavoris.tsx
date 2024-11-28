@@ -4,13 +4,15 @@ import BreweryContext from "../Contexts/BreweryContext";
 
 const MesFavoris = () => {
   const { favorites, toggleFavorite, breweries, setBreweries } =
-    useContext(BreweryContext);
+    useContext(BreweryContext); //recuperation des fonction à partir de context
   useEffect(() => {
+    // Filtre les brasseries favorites en fonction de l'ID des brasseries stockées dans 'favorites'
     const favoriteBreweries = breweries.filter((brewery) =>
       favorites.includes(brewery.id),
     );
+    // Met à jour l'état des brasseries avec la liste des brasseries favorites
     setBreweries(favoriteBreweries);
-    [favorites, breweries];
+    [favorites, breweries]; // Ce useEffect sera exécuté chaque fois que 'favorites' ou 'breweries' changent
   });
   return (
     <div>
