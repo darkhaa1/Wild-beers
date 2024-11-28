@@ -33,9 +33,37 @@ main .titreMain {
   margin-bottom: 1em;
   font-size: 1.5em;
 }
+<<<<<<< Updated upstream
+=======
+
+.filterCard {
+  background: rgba(194, 202, 209, 0.77);
+  padding: 1em;
+  border-radius: 10px;
+  color: black;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
+  width: 15em;
+}
+
+.filterCard input [type=""] {
+  margin: 0.25em;
+  font-size: 2.5em;
+  width: 100%; /* Pour s'assurer que l'input prend toute la largeur disponible */
+  padding: 0.5em; /* Vous pouvez ajouter un peu de padding pour un meilleur espacement */
+}
+
+.filterCard label {
+  font-size: 1.5em;
+}
+
+>>>>>>> Stashed changes
 .leaflet-container {
   height: 50em;
   width: 33em;
+
+  border: 4px solid #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .cardContainer {
@@ -102,7 +130,7 @@ main .titreMain {
 }
 
 .listeFiltre {
-  color: rgba(255, 255, 255, 0.929);
+  color: rgba(0, 0, 0, 0.929);
 }
 
 .coeurs {
@@ -116,14 +144,17 @@ main .titreMain {
   font-size: large;
 }
 
+@media screen and (max-width: 768px) {
+  .filterCard {
+    margin-top: 1em;
+    margin-left: 4em;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .maSelection {
     margin-left: 8em;
     margin-right: 8em;
-  }
-
-  .filtres {
-    margin-left: 0;
   }
 
   .map_filtre {

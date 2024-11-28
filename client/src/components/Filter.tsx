@@ -78,6 +78,7 @@ function Filter() {
   // chaque input propose des choix de countries/provinces/cities
   return (
     <>
+    <div className="filterCard">
       <div className="filtres">
         <button
           type="button"
@@ -88,7 +89,7 @@ function Filter() {
         </button>
         {filter && (
           <div>
-            <h2 className="boutonSoif">Filtrer par :</h2>
+            <h2 className="boutonSoif">Pays</h2>
 
             {countries.map((country) => (
               <div className="listeFiltre" key={country}>
@@ -104,7 +105,7 @@ function Filter() {
 
             {provinces.length > 0 && (
               <>
-                <h2 className="boutonSoif">Régions/States</h2>
+                <h2 className="boutonSoif">Régions</h2>
                 {provinces.map((province) => (
                   <div className="listeFiltre" key={province}>
                     <input
@@ -144,6 +145,7 @@ function Filter() {
             </button>
           </div>
         )}
+      </div>
       </div>
     </>
   );
