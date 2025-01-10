@@ -13,37 +13,41 @@ export default function Maps() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {breweries.map((brewery) => ( // récupère les données de breweries dans le useContext ce qui correspond aux API fetchées
-        <Marker
-          key={brewery.id}
-          position={[brewery.latitude, brewery.longitude]}
-        >
-          <Popup className="pop-up">
-            <h3 className="nameBrasserie">{brewery.name}</h3>
-            <ul className="cardList">
-              <li>Type de brassage: {brewery.brewery_type}</li>
-              <li>
-                Adresse :{brewery.address} {brewery.postal_code}{" "}
-                <li>Ville :{brewery.city}</li>
-                <li>Région :{brewery.state}</li>
-                <li>Pays : {brewery.country}</li>
-              </li>
-              <li>
-                <a href={brewery.website_url} className="url">
-                  visiter le site
-                </a>
-              </li>
-            </ul>
-            <button
-              type="button"
-              className="coeurs"
-              onClick={() => toggleFavorite(brewery.id)}
-            >
-              {favorites.includes(brewery.id) ? "❤️" : "🖤"}
-            </button>
-          </Popup>
-        </Marker>
-      ))}
+      {breweries.map(
+        (
+          brewery, // récupère les données de breweries dans le useContext ce qui correspond aux API fetchées
+        ) => (
+          <Marker
+            key={brewery.id}
+            position={[brewery.latitude, brewery.longitude]}
+          >
+            <Popup className="pop-up">
+              <h3 className="nameBrasserie">{brewery.name}</h3>
+              <ul className="cardList">
+                <li>Type de brassage: {brewery.brewery_type}</li>
+                <li>
+                  Adresse :{brewery.address} {brewery.postal_code}{" "}
+                  <li>Ville :{brewery.city}</li>
+                  <li>Région :{brewery.state}</li>
+                  <li>Pays : {brewery.country}</li>
+                </li>
+                <li>
+                  <a href={brewery.website_url} className="url">
+                    visiter le site
+                  </a>
+                </li>
+              </ul>
+              <button
+                type="button"
+                className="coeurs"
+                onClick={() => toggleFavorite(brewery.id)}
+              >
+                {favorites.includes(brewery.id) ? "❤️" : "🖤"}
+              </button>
+            </Popup>
+          </Marker>
+        ),
+      )}
     </MapContainer>
   );
 }

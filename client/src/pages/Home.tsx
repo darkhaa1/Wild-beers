@@ -1,9 +1,9 @@
 import "../components/home.css";
 import { useContext } from "react";
-import Filter from "../components/Filter";
-import Maps from "../components/map";
 import BreweryContext from "../Contexts/BreweryContext";
+import Filter from "../components/Filter";
 import ButtonJaiSoif from "../components/buttonJaiSoif";
+import Maps from "../components/map";
 
 function Home() {
   const { breweryCount } = useContext(BreweryContext);
