@@ -1,0 +1,180 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .titreMain {
+  text-align: center;
+  font-family: "Jaini Purva", system-ui;
+  font-size: 3.7rem;
+  font-style: normal;
+  color: white;
+  padding: 0.5em;
+}
+
+.titreMesFavoris {
+  color: white;
+}
+
+.maSelection {
+  color: black;
+  background-color: #fad96f;
+  border-color: black;
+  margin-left: 2.5em;
+  margin-right: 2.5em;
+  padding: 0.2em;
+  border-radius: 0.5em;
+  font-weight: lighter;
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 1.5em;
+}
+
+
+.filterCard {
+  background: rgba(194, 202, 209, 0.77);
+  padding: 1em;
+  border-radius: 10px;
+  color: black;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
+  width: 15em;
+}
+
+.filterCard label {
+  font-size: 1.5em;
+
+}
+.leaflet-container {
+  height: 50em;
+  width: 33em;
+
+  border: 4px solid #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fad96f;
+  margin-top: 2em;
+  width: 13em;
+  padding: 2em;
+  box-shadow: 5px 5px 12px 10px rgba(255, 255, 255, 0.578);
+  border-radius: 16px 16px 16px 16px;
+  color: black;
+  font-size: medium;
+  line-height: 1.7em;
+  margin-bottom: 2em;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  font-size: 1.5em;
+}
+
+.nameBrasserie {
+  text-align: center;
+  color: rgb(62, 60, 60);
+}
+.cardList {
+  list-style: none;
+  padding: 0;
+}
+.boutonSoif {
+  background-color: #fad96f;
+  border-color: black;
+  font-size: 2em;
+  width: 6em;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+  border-radius: 0.5em;
+  font-weight: lighter;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.boutonSoif:hover {
+  transform: scale(1.1);
+}
+
+.listeFiltre {
+  color: rgba(0, 0, 0, 0.929);
+}
+
+.coeurs {
+  background: none;
+  border: none;
+  font-size: 2em;
+}
+.url {
+  color: black;
+  text-align: center !important;
+  font-size: large;
+}
+
+@media screen and (max-width: 768px) {
+  .filterCard {
+    margin-top: 1em;
+    margin-left: 4em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .maSelection {
+    margin-left: 8em;
+    margin-right: 8em;
+  }
+
+  .map_filtre {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 2em;
+  }
+
+  .leaflet-container {
+    height: 40em;
+    width: 40em;
+  }
+}
+
+@media screen and (min-width: 1012px) {
+  .banner {
+    height: 100%;
+  }
+  .titre_selection_contenair {
+    display: flex;
+    flex-direction: row;
+    gap: 5em;
+  }
+
+  .leaflet-container {
+    height: 50em;
+    width: 100em;
+  }
+
+  .maSelection {
+    margin-bottom: 3.5em;
+    margin-top: 2.5em;
+  }
+}
